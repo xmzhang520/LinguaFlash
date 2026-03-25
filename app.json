@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "linguaflash",
-    "userInterfaceStyle": "dark",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
@@ -14,14 +14,27 @@
     },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.linguaflash.app"
+      "bundleIdentifier": "com.linguaflash.app",
+      "infoPlist": {
+        "NSSpeechRecognitionUsageDescription": "LinguaFlash uses speech for pronunciation practice.",
+        "NSMicrophoneUsageDescription": "LinguaFlash uses the microphone for pronunciation practice."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#0f0f13"
       },
-      "package": "com.linguaflash.app"
+      "package": "com.linguaflash.app",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.VIBRATE",
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.SCHEDULE_EXACT_ALARM",
+        "android.permission.POST_NOTIFICATIONS"
+      ],
+      "googleServicesFile": null
     },
     "web": {
       "bundler": "metro",
@@ -34,12 +47,18 @@
         "expo-notifications",
         {
           "icon": "./assets/images/icon.png",
-          "color": "#6366f1"
+          "color": "#6366f1",
+          "defaultChannel": "default"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": ""
+      }
     }
   }
 }
